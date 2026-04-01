@@ -25,7 +25,6 @@ RUN docker-php-ext-install intl
 RUN apk add --no-cache postgresql-dev
 RUN docker-php-ext-install pdo_pgsql
 
-COPY data/infra/php.ini /usr/local/etc/php/php.ini
 COPY --from=ghcr.io/php/pie:bin /pie /usr/bin/pie
 RUN apk add --no-cache libzip-dev zlib-dev && \
     apk add --no-cache --virtual .phpize-deps $PHPIZE_DEPS linux-headers && \
