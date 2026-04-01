@@ -25,6 +25,15 @@ services:
         environment:
             LC_ALL: C
             DEFAULT_DOMAIN: ${DEFAULT_DOMAIN}
+            IS_HTTPS_ENABLED: ${IS_HTTPS_ENABLED:-true}
+            DB_DRIVER: postgres
+            DB_HOST: shlink_db_postgres
+            DB_PORT: "5432"
+            DB_NAME: ${POSTGRES_DB:-shlink}
+            DB_USER: ${POSTGRES_USER:-postgres}
+            DB_PASSWORD: ${POSTGRES_PASSWORD}
+            INITIAL_API_KEY: ${INITIAL_API_KEY:-}
+            GEOLITE_LICENSE_KEY: ${GEOLITE_LICENSE_KEY:-}
         extra_hosts:
             - 'host.docker.internal:host-gateway'
 
