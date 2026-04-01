@@ -2,8 +2,6 @@ services:
     shlink_nginx:
         container_name: shlink_nginx
         image: nginx:1.25-alpine
-        ports:
-            - "${NGINX_PORT:-8000}:80"
         volumes:
             - ./:/home/shlink/www
             - ./docs:/home/shlink/www/public/docs
@@ -16,8 +14,6 @@ services:
         build:
             context: .
             dockerfile: ./data/infra/php.Dockerfile
-        ports:
-            - "${PHP_DEBUG_PORT:-8888}:8888"
         volumes:
             - ./:/home/shlink/www
             - ./data/infra/php.ini:/usr/local/etc/php/php.ini
